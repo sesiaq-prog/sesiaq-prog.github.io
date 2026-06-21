@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume — Sesia E. Quarles</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg:        #0a0e14;
+            --surface:   #131820;
+            --surface2:  #1c2a3a;
+            --border:    #1e2d3d;
+            --teal:      #14b8a6;
+            --teal-dim:  #0d8a7c;
+            --orange:    #f97316;
+            --orange-dim:#c45d10;
+            --text:      #e2e8f0;
+            --text-2:    #94a3b8;
+            --text-3:    #64748b;
+            --radius:    8px;
+            --radius-lg: 16px;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        a { color: var(--teal); text-decoration: none; }
+        a:hover { color: var(--orange); }
+
+        /* NAV */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 14, 20, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+        }
+        .nav-brand {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.15rem;
+            color: var(--text);
+        }
+        .nav-brand span { color: var(--orange); }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-2);
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--teal); }
+        .nav-links a.active { color: var(--teal); }
+
+        /* MAIN */
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5rem 2rem;
+        }
+        .resume-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 3.5rem;
+            max-width: 620px;
+            width: 100%;
+            text-align: center;
+        }
+        .mono-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--teal);
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .resume-name {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 400;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+        .resume-name span { color: var(--orange); }
+        .resume-title {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.82rem;
+            color: var(--teal);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+        .divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 2rem 0;
+        }
+        .resume-note {
+            font-size: 0.9rem;
+            color: var(--text-2);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.85rem 2.25rem;
+            border-radius: var(--radius);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--orange);
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background: var(--orange-dim);
+            color: #fff;
+            transform: translateY(-1px);
+        }
+        .back-link {
+            display: block;
+            margin-top: 2rem;
+            font-size: 0.82rem;
+            color: var(--text-3);
+            letter-spacing: 0.02em;
+        }
+        .back-link:hover { color: var(--teal); }
+
+        /* HIGHLIGHTS */
+        .highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        .highlight-item {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1rem;
+        }
+        .highlight-stat {
+            font-family: 'DM Mono', monospace;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--orange);
+            margin-bottom: 0.2rem;
+        }
+        .highlight-label {
+            font-size: 0.78rem;
+            color: var(--text-2);
+            line-height: 1.4;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 1.5rem 2rem;
+            text-align: center;
+            font-size: 0.78rem;
+            color: var(--text-3);
+        }
+        footer a { color: var(--text-3); }
+        footer a:hover { color: var(--teal); }
+
+        @media (max-width: 640px) {
+            .nav-links { display: none; }
+            .resume-card { padding: 2rem 1.5rem; }
+            .highlights { grid-template-columns: 1fr; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { transition: none !important; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <span class="nav-brand">SE<span>Q</span></span>
+    <ul class="nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="resume.html" class="active">Resume</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<main>
+    <div class="resume-card">
+        <p class="mono-label">Resume</p>
+        <h1 class="resume-name">Sesia E. <span>Q</span>uarles</h1>
+        <p class="resume-title">Data Analyst · Financial Analytics · Security Applications</p>
+
+        <hr class="divider">
+
+        <div class="highlights">
+            <div class="highlight-item">
+                <div class="highlight-stat">24M+</div>
+                <div class="highlight-label">Transactions analyzed at 100% reporting accuracy</div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-stat">14.8%</div>
+                <div class="highlight-label">Projected ROI from real estate investment model</div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-stat">90%</div>
+                <div class="highlight-label">Reduction in quarterly data processing time</div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-stat">CSIS</div>
+                <div class="highlight-label">CompTIA Secure Infrastructure Specialist (A+, Network+, Security+)</div>
+            </div>
+        </div>
+
+        <p class="resume-note">
+            Full resume includes professional experience, technical skills,
+            education, and certifications.
+        </p>
+
+        <a class="btn btn-primary" href="Quarles_Resume_Github.pdf" download>
+            ↓ Download Resume (PDF)
+        </a>
+
+        <a class="back-link" href="index.html">← Back to Portfolio</a>
+    </div>
+</main>
+
+<footer>
+    <p>© 2026 Sesia E. Quarles &nbsp;·&nbsp;
+       <a href="mailto:sesia.q@gmail.com">sesia.q@gmail.com</a> &nbsp;·&nbsp;
+       <a href="https://github.com/sesiaq-prog" target="_blank">github.com/sesiaq-prog</a>
+    </p>
+</footer>
+
+</body>
+</html>
