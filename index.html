@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        /* === TOKENS === */
         :root {
             --bg:        #0a0e14;
             --surface:   #131820;
@@ -25,8 +24,6 @@
             --radius:    8px;
             --radius-lg: 16px;
         }
-
-        /* === RESET === */
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
         body {
@@ -40,7 +37,7 @@
         a:hover { color: var(--orange); }
         img { display: block; max-width: 100%; }
 
-        /* === NAVBAR === */
+        /* NAV */
         nav {
             position: sticky;
             top: 0;
@@ -58,14 +55,9 @@
             font-family: 'DM Serif Display', serif;
             font-size: 1.15rem;
             color: var(--text);
-            letter-spacing: 0.01em;
         }
         .nav-brand span { color: var(--orange); }
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
         .nav-links a {
             color: var(--text-2);
             font-size: 0.8rem;
@@ -76,8 +68,8 @@
         }
         .nav-links a:hover { color: var(--teal); }
 
-        /* === HERO === */
-        .hero {
+        /* HERO */
+        #home {
             min-height: calc(100vh - 60px);
             display: flex;
             align-items: center;
@@ -87,39 +79,30 @@
             position: relative;
             overflow: hidden;
         }
-        .hero::before {
+        #home::before {
             content: '';
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(ellipse 60% 50% at 20% 30%, rgba(20, 184, 166, 0.07) 0%, transparent 70%),
-                radial-gradient(ellipse 50% 40% at 80% 70%, rgba(249, 115, 22, 0.06) 0%, transparent 70%);
+                radial-gradient(ellipse 60% 50% at 20% 30%, rgba(20,184,166,0.07) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 40% at 80% 70%, rgba(249,115,22,0.06) 0%, transparent 70%);
             pointer-events: none;
         }
-        .hero-inner {
-            position: relative;
-            max-width: 680px;
-        }
-        /* Photo container handles missing image gracefully */
+        .hero-inner { position: relative; max-width: 680px; }
         .hero-photo-wrap {
             width: 155px;
             height: 155px;
             border-radius: 50%;
             margin: 0 auto 2rem;
             border: 3px solid var(--orange);
-            box-shadow: 0 0 0 6px rgba(249, 115, 22, 0.12);
+            box-shadow: 0 0 0 6px rgba(249,115,22,0.12);
             overflow: hidden;
             background: var(--surface2);
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        .hero-photo {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
-        }
+        .hero-photo { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
         .hero-name {
             font-family: 'DM Serif Display', serif;
             font-size: clamp(2.4rem, 6vw, 3.8rem);
@@ -145,14 +128,9 @@
             margin: 0 auto 2.5rem;
             line-height: 1.75;
         }
-        .hero-cta {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+        .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
-        /* === BUTTONS === */
+        /* BUTTONS */
         .btn {
             display: inline-block;
             padding: 0.75rem 1.75rem;
@@ -162,27 +140,12 @@
             letter-spacing: 0.02em;
             transition: all 0.2s;
         }
-        .btn-primary {
-            background: var(--orange);
-            color: #fff;
-        }
-        .btn-primary:hover {
-            background: var(--orange-dim);
-            color: #fff;
-            transform: translateY(-1px);
-        }
-        .btn-secondary {
-            background: transparent;
-            color: var(--teal);
-            border: 1.5px solid var(--teal);
-        }
-        .btn-secondary:hover {
-            background: rgba(20, 184, 166, 0.08);
-            color: var(--teal);
-            transform: translateY(-1px);
-        }
+        .btn-primary { background: var(--orange); color: #fff; }
+        .btn-primary:hover { background: var(--orange-dim); color: #fff; transform: translateY(-1px); }
+        .btn-secondary { background: transparent; color: var(--teal); border: 1.5px solid var(--teal); }
+        .btn-secondary:hover { background: rgba(20,184,166,0.08); color: var(--teal); transform: translateY(-1px); }
 
-        /* === SECTION SCAFFOLDING === */
+        /* SECTIONS */
         section { padding: 5rem 2rem; }
         .container { max-width: 1100px; margin: 0 auto; }
         .section-label {
@@ -200,12 +163,23 @@
             margin-bottom: 2.5rem;
             color: var(--text);
         }
-        .divider {
-            border: none;
-            border-top: 1px solid var(--border);
-        }
+        .divider { border: none; border-top: 1px solid var(--border); }
 
-        /* === WHAT I BRING === */
+        /* ABOUT */
+        #about { padding: 4rem 2rem; }
+        .about-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .about-inner p {
+            font-size: 1.05rem;
+            color: var(--text-2);
+            line-height: 1.85;
+        }
+        .about-inner p em { color: var(--teal); font-style: normal; }
+
+        /* WHAT I BRING */
         .bring-section { background: var(--surface); }
         .bring-grid {
             display: grid;
@@ -228,13 +202,9 @@
             margin-bottom: 0.5rem;
             color: var(--text);
         }
-        .bring-card p {
-            font-size: 0.875rem;
-            color: var(--text-2);
-            line-height: 1.65;
-        }
+        .bring-card p { font-size: 0.875rem; color: var(--text-2); line-height: 1.65; }
 
-        /* === PROJECTS === */
+        /* PROJECTS */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -250,14 +220,8 @@
             gap: 0.75rem;
             transition: border-color 0.2s, transform 0.2s;
         }
-        .project-card:hover {
-            border-color: var(--teal-dim);
-            transform: translateY(-2px);
-        }
-        .project-card.placeholder {
-            border-style: dashed;
-            opacity: 0.55;
-        }
+        .project-card:hover { border-color: var(--teal-dim); transform: translateY(-2px); }
+        .project-card.placeholder { border-style: dashed; opacity: 0.55; }
         .project-type {
             font-family: 'DM Mono', monospace;
             font-size: 0.68rem;
@@ -268,21 +232,16 @@
             display: inline-block;
             width: fit-content;
         }
-        .type-finance   { background: rgba(20, 184, 166, 0.12);  color: var(--teal); }
-        .type-analytics { background: rgba(167, 139, 250, 0.12); color: var(--purple); }
-        .type-security  { background: rgba(249, 115, 22, 0.12);  color: var(--orange); }
+        .type-finance   { background: rgba(20,184,166,0.12);  color: var(--teal); }
+        .type-analytics { background: rgba(167,139,250,0.12); color: var(--purple); }
+        .type-security  { background: rgba(249,115,22,0.12);  color: var(--orange); }
         .project-card h3 {
             font-family: 'DM Serif Display', serif;
             font-size: 1.1rem;
             font-weight: 400;
             color: var(--text);
         }
-        .project-card p {
-            font-size: 0.875rem;
-            color: var(--text-2);
-            line-height: 1.6;
-            flex: 1;
-        }
+        .project-card p { font-size: 0.875rem; color: var(--text-2); line-height: 1.6; flex: 1; }
         .project-tools { display: flex; flex-wrap: wrap; gap: 0.4rem; }
         .tag {
             font-family: 'DM Mono', monospace;
@@ -295,7 +254,7 @@
         .project-links { display: flex; gap: 1rem; padding-top: 0.25rem; }
         .project-links a { font-size: 0.8rem; font-weight: 600; }
 
-        /* === SKILLS === */
+        /* SKILLS */
         .skills-section { background: var(--surface); }
         .skills-groups {
             display: grid;
@@ -320,7 +279,7 @@
             border-radius: 99px;
         }
 
-        /* === CONNECT === */
+        /* CONTACT */
         .connect-inner {
             display: flex;
             align-items: center;
@@ -337,7 +296,7 @@
         .connect-text p { color: var(--text-2); font-size: 0.95rem; }
         .connect-links { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-        /* === FOOTER === */
+        /* FOOTER */
         footer {
             background: var(--surface);
             border-top: 1px solid var(--border);
@@ -349,10 +308,11 @@
         footer a { color: var(--text-3); }
         footer a:hover { color: var(--teal); }
 
-        /* === RESPONSIVE === */
+        /* RESPONSIVE */
         @media (max-width: 640px) {
             .nav-links { display: none; }
             section { padding: 3.5rem 1.25rem; }
+            #about { padding: 3rem 1.25rem; }
             .connect-inner { flex-direction: column; align-items: flex-start; }
         }
         @media (prefers-reduced-motion: reduce) {
@@ -367,35 +327,48 @@
 <nav>
     <span class="nav-brand">SE<span>Q</span></span>
     <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="skills.html">Skills</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
         <li><a href="resume.html">Resume</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#contact">Contact</a></li>
     </ul>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
+<section id="home">
     <div class="hero-inner">
         <div class="hero-photo-wrap">
-            <img
-                class="hero-photo"
-                src="SEQuarles_Headshot_11282025.jpg"
-                alt="Sesia E. Quarles"
-            >
+            <img class="hero-photo" src="SEQuarles_Headshot_11282025.jpg" alt="Sesia E. Quarles">
         </div>
         <h1 class="hero-name">Sesia E. <span class="q">Q</span>uarles</h1>
         <p class="hero-title">Data Analyst &nbsp;·&nbsp; Financial Analytics &nbsp;·&nbsp; Security Applications</p>
         <p class="hero-tagline">
-            I translate complex financial and security datasets into decisions that matter —
-            combining 10+ years of domain expertise with modern data analytics.
+            I translate complex financial and security datasets into decisions that matter
+            by combining 10+ years of domain expertise with modern data analytics.
         </p>
         <div class="hero-cta">
-            <a class="btn btn-primary" href="projects.html">View My Work</a>
-            <a class="btn btn-secondary" href="contact.html">Get in Touch</a>
+            <a class="btn btn-primary" href="#projects">View My Work</a>
+            <a class="btn btn-secondary" href="#contact">Get in Touch</a>
         </div>
+    </div>
+</section>
+
+<hr class="divider">
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="about-inner">
+        <p>
+            With over a decade in financial operations and a foundation in international business,
+            I came to data analytics through the work itself. In one role, I cleaned
+            <em>24M+ transactions</em> regularly. In another, I reduced <em>$1.1M in receivables</em>
+            to <em>$370K</em>. I built dashboards that moved the needle for students, supervisors,
+            and auditors alike. Earning my CompTIA Security+ and pursuing a graduate degree in data
+            analytics at Western Governors University wasn't a pivot. It was the natural next step
+            for someone who has always found the signal in the noise and done something useful with it.
+        </p>
     </div>
 </section>
 
@@ -410,12 +383,12 @@
             <div class="bring-card">
                 <div class="bring-icon">💹</div>
                 <h3>Financial Domain Expertise</h3>
-                <p>Over a decade of hands-on financial experience — risk analysis, compliance workflows, and the business context that makes data findings actionable, not just accurate.</p>
+                <p>Over a decade of hands-on financial expertise: risk analysis, compliance workflows, and the business context that makes data findings actionable, not just accurate.</p>
             </div>
             <div class="bring-card">
                 <div class="bring-icon">📊</div>
                 <h3>Data Analytics</h3>
-                <p>End-to-end data pipelines, statistical modeling, and visualization built in Python, SQL, R, and PowerShell — with a focus on translating results into language stakeholders can act on.</p>
+                <p>End-to-end data pipelines, statistical modeling, and visualization built in Python and SQL with a focus on translating results into language stakeholders can act on.</p>
             </div>
             <div class="bring-card">
                 <div class="bring-icon">🔒</div>
@@ -428,14 +401,13 @@
 
 <hr class="divider">
 
-<!-- FEATURED PROJECTS -->
-<section>
+<!-- PROJECTS -->
+<section id="projects">
     <div class="container">
         <p class="section-label">Portfolio</p>
         <h2 class="section-heading">Featured Projects</h2>
         <div class="projects-grid">
 
-            <!-- FINANCIAL DATA SCIENCE: Housing Market -->
             <div class="project-card">
                 <span class="project-type type-finance">Financial Data Science</span>
                 <h3>Housing Market Investment &amp; Tax Analysis</h3>
@@ -447,12 +419,11 @@
                     <span class="tag">PCA</span>
                 </div>
                 <div class="project-links">
-                    <a href="projects.html">Details →</a>
+                    <a href="#">Details →</a>
                     <a href="#">GitHub ↗</a>
                 </div>
             </div>
 
-            <!-- DATA ANALYTICS: Telecom Churn -->
             <div class="project-card">
                 <span class="project-type type-analytics">Data Analytics</span>
                 <h3>Telecommunications Churn Dashboard</h3>
@@ -461,49 +432,37 @@
                     <span class="tag">Tableau</span>
                 </div>
                 <div class="project-links">
-                    <a href="projects.html">Details →</a>
+                    <a href="#">Details →</a>
                     <a href="#">GitHub ↗</a>
                 </div>
             </div>
 
-            <!-- PLACEHOLDER: Data Analytics -->
             <div class="project-card placeholder">
                 <span class="project-type type-analytics">Data Analytics</span>
                 <h3>Coming Soon</h3>
                 <p>Project in progress.</p>
-                <div class="project-tools">
-                    <span class="tag">TBD</span>
-                </div>
+                <div class="project-tools"><span class="tag">TBD</span></div>
             </div>
 
-            <!-- PLACEHOLDER: Financial Data Science -->
             <div class="project-card placeholder">
                 <span class="project-type type-finance">Financial Data Science</span>
                 <h3>Coming Soon</h3>
                 <p>Project in progress.</p>
-                <div class="project-tools">
-                    <span class="tag">TBD</span>
-                </div>
+                <div class="project-tools"><span class="tag">TBD</span></div>
             </div>
 
-            <!-- PLACEHOLDER: Security -->
             <div class="project-card placeholder">
                 <span class="project-type type-security">Security</span>
                 <h3>Coming Soon</h3>
                 <p>Project in progress.</p>
-                <div class="project-tools">
-                    <span class="tag">TBD</span>
-                </div>
+                <div class="project-tools"><span class="tag">TBD</span></div>
             </div>
 
-            <!-- PLACEHOLDER: Security -->
             <div class="project-card placeholder">
                 <span class="project-type type-security">Security</span>
                 <h3>Coming Soon</h3>
                 <p>Project in progress.</p>
-                <div class="project-tools">
-                    <span class="tag">TBD</span>
-                </div>
+                <div class="project-tools"><span class="tag">TBD</span></div>
             </div>
 
         </div>
@@ -513,7 +472,7 @@
 <hr class="divider">
 
 <!-- SKILLS -->
-<section class="skills-section">
+<section id="skills" class="skills-section">
     <div class="container">
         <p class="section-label">Technical Skills</p>
         <h2 class="section-heading">Tools of the trade</h2>
@@ -524,7 +483,6 @@
                     <span class="skill-tag">Python</span>
                     <span class="skill-tag">R</span>
                     <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">PowerShell</span>
                 </div>
             </div>
             <div class="skill-group">
@@ -560,8 +518,8 @@
 
 <hr class="divider">
 
-<!-- CONNECT -->
-<section>
+<!-- CONTACT -->
+<section id="contact">
     <div class="container">
         <div class="connect-inner">
             <div class="connect-text">
